@@ -29,7 +29,7 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v4
       - name: setup terraform with specified version on the runner 
-        uses: hashicorp/setup-terraform`
+        uses: hashicorp/setup-terraform@v2`
       - name: Terraform init
         id: init
         run: terraform init -backend-config="bucket=$BUCKET_TF_STATE"
@@ -45,6 +45,6 @@ jobs:
       - name: Terraform plan status
         if: steps.plan.outcome == 'failure'
         run: exit 1 
-        
+
     
 
